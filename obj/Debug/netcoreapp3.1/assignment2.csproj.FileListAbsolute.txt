@@ -11,3 +11,16 @@ D:\University\Algorithms and Complexity\assignment2\obj\Debug\netcoreapp3.1\assi
 D:\University\Algorithms and Complexity\assignment2\obj\Debug\netcoreapp3.1\assignment2.dll
 D:\University\Algorithms and Complexity\assignment2\obj\Debug\netcoreapp3.1\assignment2.pdb
 D:\University\Algorithms and Complexity\assignment2\obj\Debug\netcoreapp3.1\assignment2.genruntimeconfig.cache
+D:\University\Algorithms and Complexity\assignment\Program\obj\Debug\netcoreapp3.1\assignment2.csprojAssemblyReference.cache
+D:\University\Algorithms and Complexity\assignment\Program\obj\Debug\netcoreapp3.1\assignment2.AssemblyInfoInputs.cache
+D:\University\Algorithms and Complexity\assignment\Program\obj\Debug\netcoreapp3.1\assignment2.AssemblyInfo.cs
+D:\University\Algorithms and Complexity\assignment\Program\obj\Debug\netcoreapp3.1\assignment2.csproj.CoreCompileInputs.cache
+D:\University\Algorithms and Complexity\assignment\Program\obj\Debug\netcoreapp3.1\assignment2.dll
+D:\University\Algorithms and Complexity\assignment\Program\obj\Debug\netcoreapp3.1\assignment2.pdb
+D:\University\Algorithms and Complexity\assignment\Program\bin\Debug\netcoreapp3.1\assignment2.exe
+D:\University\Algorithms and Complexity\assignment\Program\bin\Debug\netcoreapp3.1\assignment2.deps.json
+D:\University\Algorithms and Complexity\assignment\Program\bin\Debug\netcoreapp3.1\assignment2.runtimeconfig.json
+D:\University\Algorithms and Complexity\assignment\Program\bin\Debug\netcoreapp3.1\assignment2.runtimeconfig.dev.json
+D:\University\Algorithms and Complexity\assignment\Program\bin\Debug\netcoreapp3.1\assignment2.dll
+D:\University\Algorithms and Complexity\assignment\Program\bin\Debug\netcoreapp3.1\assignment2.pdb
+D:\University\Algorithms and Complexity\assignment\Program\obj\Debug\netcoreapp3.1\assignment2.genruntimeconfig.cache
