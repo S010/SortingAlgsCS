@@ -8,21 +8,28 @@ namespace Program
 {
     class Program
     {
+        private static List<Road> LoadRoads(List<FileInfo> files)
+        {
+            FileManagement f = new FileManagement();
+            List<Road> Roads = new List<Road>();
+            foreach (var item in files)
+            {
+                Road road = new Road();
+                road.Name = item.Name;
+                road.Array = Array.ConvertAll(f.GetContentsOfFile(f.GetFile(files,"Road_1_256.txt")),int.Parse);
+                Roads.Add(road);
+                Console.WriteLine($"Loaded {road.Name} ...");
+            }
+            return Roads;
+        }
         static void Main(string[] args)
         {
             FileManagement f = new FileManagement();
             Sorting s = new Sorting();
             string path = f.GetFilePath();
             List<FileInfo> files = f.GetFilesInPath(path);
-            int[] Road1_256 = Array.ConvertAll(f.GetContentsOfFile(f.GetFile(files,"Road_1_256.txt")),int.Parse);
-            int[] Road2_256 = Array.ConvertAll(f.GetContentsOfFile(f.GetFile(files,"Road_2_256.txt")),int.Parse);
-            int[] Road3_256 = Array.ConvertAll(f.GetContentsOfFile(f.GetFile(files,"Road_3_256.txt")),int.Parse);
-            s.quickSort(Road1_256,0,Road1_256.Length-1);
-            foreach (var item in Road1_256)
-            {
-                Console.WriteLine(item);
-            }
-
+            List<Road> Roads = new List<Road>(LoadRoads(files));
+            Road selectedFile = null;
         }
     }
 }

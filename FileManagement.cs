@@ -30,7 +30,6 @@ namespace Program
         foreach (var file in new DirectoryInfo(filePath).GetFiles("*.txt"))
         {
             files.Add(file);
-            Console.WriteLine($"Adding {file.Name} ...");
         }
         return files;
       }

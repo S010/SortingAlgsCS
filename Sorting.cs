@@ -4,40 +4,53 @@ namespace Program
 {
     class Sorting
     {
-        public int Partition(int[] arr, int left , int right)
+        int count = new int();
+        public int Partition(int[] arr ,bool ascending, int left , int right)
         {
             if(left > right) return -1;
             int end = left;
             int pivot = arr[right];
             for(int i = left; i<right;i++)
             {
-                if(arr[i] < pivot)
+                switch (ascending)
                 {
-                    swap(arr,i,end);
-                    end++;
+                    case true :
+                        if(arr[i] < pivot)
+                        {
+                            swap(arr,i,end);
+                            end++;
+                        }
+                        break;
+                    case false :
+                        if(arr[i] > pivot)
+                        {
+                            swap(arr,i,end);
+                            end++;
+                        }
+                        break;
                 }
             }
             swap(arr,end,right);
             return end;
         }
-        public void quickSort(int[] arr, int first, int last)
+        public void quickSort(int[] arr,bool ascending, int left , int right)
         {
-            Console.WriteLine("Quick sorting");
-            if(first < last)
+            Console.WriteLine($"Quick sort iteration {count}");
+            if(left < right)
             {
-                int pivot = Partition(arr,first,last);
+                int pivot = Partition(arr,ascending,left,right);
                 if(pivot>1)
                 {
-                    quickSort(arr,first,pivot-1);
+                    count++;
+                    quickSort(arr,ascending,left,pivot-1);
                 }
-                if(pivot+1<last)
+                if(pivot+1<right)
                 {
-                    quickSort(arr,pivot+1,last);
+                    count++;
+                    quickSort(arr,ascending,pivot+1,right);
                 }
-                
             }
         }
-
         private void swap (int[] arr , int left , int right)
         {
             int temp = arr[left];
