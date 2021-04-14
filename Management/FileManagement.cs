@@ -3,11 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Configuration;
+using System.Collections.Specialized;
 
-namespace Program
+namespace RoadProgram.Management
 {
-    class FileManagement
+    public class FileManagement
     {
+      public string path { get; set; }
+      public List<FileInfo> Files {get; set;}
+      public FileManagement()
+      {
+        path = GetFilePath();
+        Files = GetFilesInPath(path);
+      }
+      
       public string GetFilePath()
       {
         while(true)
@@ -23,7 +33,7 @@ namespace Program
             Console.WriteLine("Please supply a real directory");
           }
         }
-      }
+      }  
       public List<FileInfo> GetFilesInPath(string filePath)
       {
         List<FileInfo> files = new List<FileInfo>();
