@@ -3,14 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using RoadProgram.Models;
 using RoadProgram.Management;
-namespace RoadProgram
+
+namespace RoadProgram.Sorting
 {
-    class Sorting
+    public class Quick : SortingAlg
     {
-        int count = new int();
-        public int Partition(int[] arr ,bool ascending, int left , int right)
+        public Quick(int[] array, bool assending)
+        {
+            sortedArray = array;
+            recurSort(sortedArray,assending,0,sortedArray.Length-1);
+            this.returnSortedArray();
+            Console.WriteLine($"Steps:{count}");
+        }
+
+        private int Partition(int[] arr ,bool ascending, int left , int right)
         {
             if(left > right) return -1;
             int end = left;
@@ -38,21 +48,20 @@ namespace RoadProgram
             swap(arr,end,right);
             return end;
         }
-        public void quickSort(int[] arr,bool ascending, int left , int right)
+        public void recurSort(int[] arr,bool ascending, int left , int right)
         {
-            Console.WriteLine($"Quick sort iteration {count}");
             if(left < right)
             {
                 int pivot = Partition(arr,ascending,left,right);
                 if(pivot>1)
                 {
                     count++;
-                    quickSort(arr,ascending,left,pivot-1);
+                    recurSort(arr,ascending,left,pivot-1);
                 }
                 if(pivot+1<right)
                 {
                     count++;
-                    quickSort(arr,ascending,pivot+1,right);
+                    recurSort(arr,ascending,pivot+1,right);
                 }
             }
         }

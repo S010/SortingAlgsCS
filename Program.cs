@@ -8,6 +8,7 @@ using System.Text.Json.Serialization;
 using RoadProgram.Models;
 using RoadProgram.Management;
 using RoadProgram.Helpers;
+using RoadProgram.Sorting;
 namespace RoadProgram
 {
     class Program
@@ -15,8 +16,7 @@ namespace RoadProgram
         static void Main(string[] args)
         {
             FileManagement fileMang = new FileManagement();
-            Sorting sorting = new Sorting();
-            RoadManagement roadMang = new RoadManagement(fileMang.Files);
+            RoadManagement roadMang = new RoadManagement(fileMang);
             UI ui = new UI();            
             //fileMang.GetFilePath();
             
@@ -24,9 +24,12 @@ namespace RoadProgram
             while (true)
             {
                 Console.WriteLine($"\n\n=== Sorting Roads ===\nDirectory : {fileMang.path}\nCurrent File : {roadMang.SelectedRoad.Name}\n");
-                Console.WriteLine("1 - Sort Current File\n2 - Search Current File\n3 - Merge Current File With Another file \nS - Settings (Change Directory and Selected Road)\nQ - Quit\n");
+                Console.WriteLine("1 - Sort Current File\n2 - Search Current File\n3 - Merge Current File With Another file \nS - Settings (Change Directory and Selected Road)\nQ - Quit");
                 switch (Console.ReadLine().ToLower())
                 {
+                    case "1":
+                        ui.SortingUI(fileMang,roadMang);
+                        break;
                     case "s":
                         ui.Settings(fileMang,roadMang);
                         break;
@@ -34,6 +37,7 @@ namespace RoadProgram
                         Environment.Exit(0);
                         break;
                     default:
+                        Console.WriteLine("Input a valid command");
                         break;
                 }
                 

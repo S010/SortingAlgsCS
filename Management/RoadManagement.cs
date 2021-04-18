@@ -12,22 +12,21 @@ namespace RoadProgram.Management
       public List<Road> Roads {get; set;}
 
       public Road SelectedRoad {get; set;}
-      public RoadManagement(List<FileInfo> files)
+      public RoadManagement(FileManagement fileMang)
       {
-        Roads = LoadRoads(files);
+        Roads = LoadRoads(fileMang);
         SelectedRoad = Roads[0];
       }
 
-      public List<Road> LoadRoads(List<FileInfo> files)
+      public List<Road> LoadRoads(FileManagement fileMang)
       {
-        FileManagement f = new FileManagement();
         List<Road> Roads = new List<Road>();
 
-        foreach (var item in files)
+        foreach (var item in fileMang.Files)
         {
           Road road = new Road();
           road.Name = item.Name;
-          road.Array = Array.ConvertAll(f.GetContentsOfFile(f.GetFile(files,"Road_1_256.txt")),int.Parse);
+          road.Array = Array.ConvertAll(fileMang.GetContentsOfFile(fileMang.GetFile(fileMang.Files,"Road_1_256.txt")),int.Parse);
           Roads.Add(road);
           Console.WriteLine($"Loaded {road.Name} ...");
         }
