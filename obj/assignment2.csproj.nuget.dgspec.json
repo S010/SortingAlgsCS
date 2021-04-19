@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\University\\Algorithms and Complexity\\assignment\\Program\\assignment2.csproj": {}
+    "D:\\University\\Algorithms and Complexity\\assignment\\RoadProgram\\assignment2.csproj": {}
   },
   "projects": {
-    "D:\\University\\Algorithms and Complexity\\assignment\\Program\\assignment2.csproj": {
+    "D:\\University\\Algorithms and Complexity\\assignment\\RoadProgram\\assignment2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\University\\Algorithms and Complexity\\assignment\\Program\\assignment2.csproj",
+        "projectUniqueName": "D:\\University\\Algorithms and Complexity\\assignment\\RoadProgram\\assignment2.csproj",
         "projectName": "assignment2",
-        "projectPath": "D:\\University\\Algorithms and Complexity\\assignment\\Program\\assignment2.csproj",
+        "projectPath": "D:\\University\\Algorithms and Complexity\\assignment\\RoadProgram\\assignment2.csproj",
         "packagesPath": "C:\\Users\\Jacob\\.nuget\\packages\\",
-        "outputPath": "D:\\University\\Algorithms and Complexity\\assignment\\Program\\obj\\",
+        "outputPath": "D:\\University\\Algorithms and Complexity\\assignment\\RoadProgram\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jacob\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.Configuration": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
