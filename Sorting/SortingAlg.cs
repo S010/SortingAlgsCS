@@ -18,21 +18,9 @@ namespace RoadProgram.Sorting
 
     public void returnSortedArray()
     {
-      int i = 0 ;
-      if(sortedArray.Length == 0)
+      for (int i = 0; i < sortedArray.Length; i+=10)
       {
-        Console.WriteLine("There isnt anything in the array");
-      }
-      else
-      {
-        foreach (var item in sortedArray)
-        {
-          i++;
-          if (i % 10 == 0)
-          {
-            Console.WriteLine(item);
-          }
-        }
+        Console.Write($"{sortedArray[i]}  ");
       }
     }  
   }   

@@ -17,7 +17,6 @@ namespace RoadProgram.Management
         Roads = LoadRoads(fileMang);
         SelectedRoad = Roads[0];
       }
-
       public List<Road> LoadRoads(FileManagement fileMang)
       {
         List<Road> Roads = new List<Road>();
@@ -26,7 +25,7 @@ namespace RoadProgram.Management
         {
           Road road = new Road();
           road.Name = item.Name;
-          road.Array = Array.ConvertAll(fileMang.GetContentsOfFile(fileMang.GetFile(fileMang.Files,"Road_1_256.txt")),int.Parse);
+          road.Array = Array.ConvertAll(fileMang.GetContentsOfFile(fileMang.GetFile(fileMang.Files,item.Name)),int.Parse);
           Roads.Add(road);
           Console.WriteLine($"Loaded {road.Name} ...");
         }
@@ -52,9 +51,6 @@ namespace RoadProgram.Management
           }
           ;
         }
-
-        
       }
-      
     }
 }

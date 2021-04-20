@@ -16,8 +16,8 @@ namespace RoadProgram.Sorting
         {
             sortedArray = array;
             recurSort(sortedArray,assending,0,sortedArray.Length-1);
-            this.returnSortedArray();
-            Console.WriteLine($"Steps:{count}");
+            returnSortedArray();
+            Console.WriteLine($"\nSteps:{count}");
         }
 
         private int Partition(int[] arr ,bool ascending, int left , int right)
@@ -48,7 +48,7 @@ namespace RoadProgram.Sorting
             swap(arr,end,right);
             return end;
         }
-        public void recurSort(int[] arr,bool ascending, int left , int right)
+        private void recurSort(int[] arr,bool ascending, int left , int right)
         {
             if(left < right)
             {

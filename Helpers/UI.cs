@@ -53,7 +53,7 @@ namespace RoadProgram.Helpers
               break;
             
             case "2":
-              Console.WriteLine("WIP");
+              Insertion insertionSort = new Insertion(roadMang.SelectedRoad.Array,Assending());
               break;
             
             case "3":

@@ -14,7 +14,7 @@ namespace RoadProgram.Management
       public List<FileInfo> Files {get; set;}
       public FileManagement()
       {
-        path = GetFilePath();
+        path = "data";
         Files = GetFilesInPath(path);
       }
       
