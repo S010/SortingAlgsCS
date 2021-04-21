@@ -2,6 +2,7 @@ using System;
 using Management;
 using Sorting;
 using Searching;
+using Models;
 namespace Helpers
 {
   public class UI
@@ -62,7 +63,6 @@ namespace Helpers
         }
       }  
     }
-    
     public void SearchingUI(FileManagement fileMang, RoadManagement roadMang)
     {
       bool EndWhile = false;
@@ -89,6 +89,19 @@ namespace Helpers
         }
       }
     }
+    public void MergingUI(FileManagement fileMang, RoadManagement roadMang)
+    {
+      Merging merg = new Merging();
+      Console.WriteLine($"SELECT ROAD TO MERGE WITH {roadMang.SelectedRoad.Name}");
+      Road selectedRoadOne = roadMang.SelectedRoad;
+      Road selectedRoadTwo = roadMang.SelectRoad();
+      int[] mergedArray = merg.returnMergedArray(selectedRoadOne.Array,selectedRoadTwo.Array);
+      Road mergedRoad = new Road();
+      mergedRoad.Name = $"Merged({selectedRoadOne.Name} + {selectedRoadTwo.Name})";
+      mergedRoad.Array = mergedArray;
+      roadMang.Roads.Add(mergedRoad);
+      Console.WriteLine("Merged Roads added to list of Roads\nYou can now select it in the Settings tab ");
+    }
     private bool Assending()
     {
       bool EndWhile = false;
@@ -108,7 +121,6 @@ namespace Helpers
       }
       return true;
     }
-
     private int getSelectedNumber()
     {
       while (true)

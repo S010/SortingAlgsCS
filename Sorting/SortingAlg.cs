@@ -11,7 +11,7 @@ namespace Sorting
     {
       Console.WriteLine("=== RESULT ===");
       int nthVal = 0;
-      if(sortedArray.Length == 2048){nthVal = 50;}
+      if(sortedArray.Length >= 2048){nthVal = 50;}
       else{nthVal = 10;};
       if(!assending)
       {

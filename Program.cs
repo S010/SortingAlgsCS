@@ -27,7 +27,7 @@ namespace Main
                         ui.SearchingUI(fileMang,roadMang);
                         break;
                     case "3":
-                        Console.WriteLine("WIP");
+                        ui.MergingUI(fileMang,roadMang);
                         break;
                     case "s":
                         ui.Settings(fileMang,roadMang);
