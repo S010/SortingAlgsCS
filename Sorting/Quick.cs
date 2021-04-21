@@ -1,67 +1,47 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using RoadProgram.Models;
-using RoadProgram.Management;
 
-namespace RoadProgram.Sorting
+namespace Sorting
 {
     public class Quick : SortingAlg
     {
-        public Quick(int[] array, bool assending)
+        public Quick(int[] array, bool assending, bool display)
         {
             sortedArray = array;
-            recurSort(sortedArray,assending,0,sortedArray.Length-1);
-            returnSortedArray();
-            Console.WriteLine($"\nSteps:{count}");
+            recurSort(sortedArray,0,sortedArray.Length-1);
+            if(display)
+                returnSortedArray(assending);
         }
 
-        private int Partition(int[] arr ,bool ascending, int left , int right)
+        private int Partition(int[] arr , int left , int right)
         {
             if(left > right) return -1;
             int end = left;
             int pivot = arr[right];
             for(int i = left; i<right;i++)
             {
-                switch (ascending)
+                if(arr[i] < pivot)
                 {
-                    case true :
-                        if(arr[i] < pivot)
-                        {
-                            swap(arr,i,end);
-                            end++;
-                        }
-                        break;
-                    case false :
-                        if(arr[i] > pivot)
-                        {
-                            swap(arr,i,end);
-                            end++;
-                        }
-                        break;
+                    swap(arr,i,end);
+                    end++;
                 }
             }
             swap(arr,end,right);
             return end;
         }
-        private void recurSort(int[] arr,bool ascending, int left , int right)
+        private void recurSort(int[] arr, int left , int right)
         {
             if(left < right)
             {
-                int pivot = Partition(arr,ascending,left,right);
+                int pivot = Partition(arr,left,right);
                 if(pivot>1)
                 {
                     count++;
-                    recurSort(arr,ascending,left,pivot-1);
+                    recurSort(arr,left,pivot-1);
                 }
                 if(pivot+1<right)
                 {
                     count++;
-                    recurSort(arr,ascending,pivot+1,right);
+                    recurSort(arr,pivot+1,right);
                 }
             }
         }

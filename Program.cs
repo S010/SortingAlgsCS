@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using RoadProgram.Models;
-using RoadProgram.Management;
-using RoadProgram.Helpers;
-using RoadProgram.Sorting;
-namespace RoadProgram
+using Management;
+using Helpers;
+
+namespace Main
 {
     class Program
     {
@@ -29,6 +22,12 @@ namespace RoadProgram
                 {
                     case "1":
                         ui.SortingUI(fileMang,roadMang);
+                        break;
+                    case "2":
+                        ui.SearchingUI(fileMang,roadMang);
+                        break;
+                    case "3":
+                        Console.WriteLine("WIP");
                         break;
                     case "s":
                         ui.Settings(fileMang,roadMang);

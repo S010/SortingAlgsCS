@@ -1,57 +1,32 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using RoadProgram.Models;
-using RoadProgram.Management;
 
-namespace RoadProgram.Sorting
+
+namespace Sorting
 {
     public class Insertion : SortingAlg
     {
-        public Insertion(int[] array , bool assending)
+        public Insertion(int[] array , bool assending,bool display)
         {
             sortedArray = array;
-            sort(sortedArray, assending);
-            returnSortedArray();
-            Console.WriteLine($"\nSteps:{count}");
+            sort(sortedArray);
+            if(display)
+                returnSortedArray(assending);
         }
-        private void sort(int[] array , bool assending)
+        private void sort(int[] array)
         {
-            if (assending)
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int i = 0; i < array.Length; i++)
+                count++;
+                int currentVal = array[i];
+                int pos = i;
+                while(pos>0 && array[pos-1]>currentVal)
                 {
-                    count++;
-                    int currentVal = array[i];
-                    int pos = i;
-                    while(pos>0 && array[pos-1]>currentVal)
-                    {
-                        array[pos] = array[pos-1];
-                        pos --;
-                    }
-                    array[pos] = currentVal;
-                }   
-            }
-            else 
-            {
-                for (int i = 0; i < array.Length; i++)
-                {
-                    count++;
-                    int currentVal = array[i];
-                    int pos = i;
-                    while(pos>0 && array[pos-1]<currentVal)
-                    {
-                        array[pos] = array[pos-1];
-                        pos --;
-                    }
-                    array[pos] = currentVal;
+                    array[pos] = array[pos-1];
+                    pos --;
                 }
+                array[pos] = currentVal;
             }
-            
+
         }
     }
 }  

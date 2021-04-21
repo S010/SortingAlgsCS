@@ -6,7 +6,7 @@ using System.Text;
 using System.Configuration;
 using System.Collections.Specialized;
 
-namespace RoadProgram.Management
+namespace Management
 {
     public class FileManagement
     {
